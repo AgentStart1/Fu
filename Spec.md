@@ -1,6 +1,6 @@
 # Spec
 
-[fu.drawio](fu.drawio)
+[rich-text-editing.drawio](rich-text-editing.drawio)
 
 RichEditText 会通过**cursorStyle** 提示当前光标所在位置的样式,即在此处输入新的字符将会继承的样式。
 鉴于前者的提到的系统的默认行为，在计算样式时需要确保最后一个字符不是标点符号。
@@ -37,4 +37,3 @@ flowchart LR
 ```
 
 Break 取消是还需要判断是否需要合并前后的样式。
-

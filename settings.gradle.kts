@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Fu"
+rootProject.name = "Fuluent"
 include(":app")
-include(":fu-text-edit")
-include(":fu-edit-control")
+include(":rich-text-edit")
+include(":rich-edit-control")

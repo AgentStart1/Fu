@@ -155,13 +155,13 @@
             android:src="@drawable/baseline_image_24" />
     </LinearLayout>
 
-    <com.storyteller_f.rich_text_edit.FuEditTextGroup
+    <com.storyteller_f.fuluent.rich_text_edit.RichEditTextGroup
         android:id="@+id/group"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-    </com.storyteller_f.rich_text_edit.FuEditTextGroup>
+    </com.storyteller_f.fuluent.rich_text_edit.RichEditTextGroup>
 
 
 </LinearLayout>

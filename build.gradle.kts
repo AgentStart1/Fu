@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.kotlinx.kover") version "0.7.4"
 }
 
-val androidModules = listOf("fu-text-edit", "fu-edit-control")
+val androidModules = listOf("rich-text-edit", "rich-edit-control")
 subprojects {
     apply(plugin = "org.jetbrains.kotlinx.kover")
 

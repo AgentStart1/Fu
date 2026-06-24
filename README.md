@@ -1,4 +1,4 @@
-# Fu
+# Fuluent
 
 Android 原生富文本编辑器
 
