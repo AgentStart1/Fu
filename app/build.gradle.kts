@@ -5,6 +5,12 @@ plugins {
     alias(libs.plugins.easyLauncher)
 }
 
+val signPath: String? = System.getenv("storyteller_f_sign_path")
+val signKey: String? = System.getenv("storyteller_f_sign_key")
+val signAlias: String? = System.getenv("storyteller_f_sign_alias")
+val signStorePassword: String? = System.getenv("storyteller_f_sign_store_password")
+val signKeyPassword: String? = System.getenv("storyteller_f_sign_key_password")
+
 android {
     namespace = "com.storyteller_f.fuluent"
     compileSdk = 34
@@ -19,16 +25,34 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        val signStorePath = when {
+            signPath != null -> File(signPath)
+            signKey != null -> File(System.getProperty("user.home"), "signing_key.jks")
+            else -> null
+        }
+        if (signStorePath != null && signAlias != null && signStorePassword != null && signKeyPassword != null) {
+            create("release") {
+                keyAlias = signAlias
+                keyPassword = signKeyPassword
+                storeFile = signStorePath
+                storePassword = signStorePassword
+            }
+        }
+    }
     buildTypes {
         debug {
             applicationIdSuffix = ".dev"
         }
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            val releaseSignConfig = signingConfigs.findByName("release")
+            if (releaseSignConfig != null)
+                signingConfig = releaseSignConfig
         }
     }
     compileOptions {
