@@ -44,6 +44,17 @@ android {
         debug {
             applicationIdSuffix = ".dev"
         }
+        create("daily") {
+            applicationIdSuffix = ".daily"
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            val releaseSignConfig = signingConfigs.findByName("release")
+            if (releaseSignConfig != null)
+                signingConfig = releaseSignConfig
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
