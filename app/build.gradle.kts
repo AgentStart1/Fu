@@ -44,8 +44,9 @@ android {
         debug {
             applicationIdSuffix = ".dev"
         }
-        create("daily") {
-            applicationIdSuffix = ".daily"
+        create("alpha") {
+            applicationIdSuffix = ".alpha"
+            matchingFallbacks += listOf("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
